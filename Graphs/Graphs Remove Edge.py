@@ -10,9 +10,11 @@ class Graph:
     
     def add_edge(self, v1, v2):
         if v1 in self.adj_list.key() and v2 in self.adj_list.key(): #make sure whether edges are present or not
-            self.adj_list[v1].append[v2]
-            self.adj_list[v2].append[v1]
-            return True                                             #executes after dict consists of vertices
+            try:
+                self.adj_list[v1].append(v2)
+                self.adj_list[v2].append(v1)
+            except ValueError:
+                return True                                             #executes after dict consists of vertices
         return False                                                #executes if vertex are not present
     
     def remove_edge(self, v1, v2):
