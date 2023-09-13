@@ -1,3 +1,4 @@
+"""Divide and conquer. First array ni single element ayye varaku break chesi, first two compare next comapre next four compare ala last lo sorted array vache varaku"""
 def merge(list1,list2):
     combine = []
     i = j = 0
