@@ -8,23 +8,21 @@ For 3rd operation we need the index of element at which it needs to be inserted.
 """
 # Node class for new nodes. Every time we call theis node class, new node will be created.
 
-
 class Node:
     def __init__(self, value):
         self.value = value
-        self.next = None
+        self.next = next
 
-
-class LinkedList:
+class Linkedlist:
     def __init__(self, value):
-        new_node = Node(value)  # calling the Node class to create the node
+        new_node = Node(value)
         self.head = new_node
         self.tail = new_node
         self.length = 1
 
     def print_list(self):
         temp = self.head
-        if temp is not None:
+        while temp is not None:
             print(temp.value)
             temp = temp.next
 
@@ -38,7 +36,6 @@ class LinkedList:
             self.tail = new_node
         self.length += 1
 
-
-my_ll = LinkedList(1)
-my_ll.append(2)
-my_ll.print_list()
+my_linked_list = Linkedlist(1)
+my_linked_list.append(2)
+my_linked_list.print_list()
