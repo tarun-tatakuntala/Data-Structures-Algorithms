@@ -20,12 +20,14 @@ class Linkedlist:
         self.tail = new_node
         self.length = 1
 
+    #print list
     def print_list(self):
         temp = self.head
         while temp is not None:
             print(temp.value)
             temp = temp.next
 
+    #Insertion at the end
     def append(self, value):
         new_node = Node(value)
         if self.length == 0:
@@ -36,6 +38,18 @@ class Linkedlist:
             self.tail = new_node
         self.length += 1
 
+    #Insertion at the start
+    def prepend(self, value):
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = head
+            self.tail = tail
+        else:
+            new_node.next = self.head
+            self.head = new_node
+            self.length += 1
+
 my_linked_list = Linkedlist(1)
 my_linked_list.append(2)
+my_linked_list.prepend(0)
 my_linked_list.print_list()
