@@ -35,6 +35,14 @@ class LinkedList:
             print(temp.value)
             temp = temp.next
     
+    def get(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        temp = self.head
+        for _ in range(index):
+            temp = temp.next
+        return temp
+    #Deletion at the end. No arguments required
     def pop(self):
         if self.length == 0:
             return None
@@ -51,8 +59,38 @@ class LinkedList:
             self.tail = None
         return temp
     
+    def pop_first(self):
+        if self.length == 0:
+            return None
+        temp = self.head
+        self.head.next = self.head
+        temp.next = None
+        if self.length == 0:
+            self.head = None
+        return temp
+
+    def remove(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        if index == 0:
+            return self.pop_first()
+        if index == self.length-1:
+            return self.pop()
+        pre = self.get(index-1)
+        temp = pre.next 
+        pre.next = temp.next 
+        temp.next = None
+        self.length -= 1
+        return temp
+
+    
 my_linked_list = LinkedList(0)
 my_linked_list.append(1)
 my_linked_list.append(2)
+my_linked_list.append(3)
+my_linked_list.append(4)
+my_linked_list.append(5)
 my_linked_list.pop()
+my_linked_list.pop_first()
+print(my_linked_list.remove(1))
 my_linked_list.print_list()
